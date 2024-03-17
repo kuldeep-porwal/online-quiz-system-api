@@ -7,17 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineQuizApi.Business\OnlineQuizApi.Business.csproj" />
     <ProjectReference Include="..\OnlineQuizApi.DataBaseModel\OnlineQuizApi.DataBaseModel.csproj" />
+    <ProjectReference Include="..\OnlineQuizApi.Framework\OnlineQuizApi.Framework.csproj" />
+    <ProjectReference Include="..\OnlineQuizApi.PublicModel\OnlineQuizApi.PublicModel.csproj" />
   </ItemGroup>
 
 </Project>

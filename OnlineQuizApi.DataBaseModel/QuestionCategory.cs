@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.DataBaseModel;
 
 public partial class QuestionCategory
 {
@@ -15,5 +12,5 @@ public partial class QuestionCategory
 
     public DateTime UpdatedDate { get; set; }
 
-    public virtual ICollection<QuestionDetail> QuestionDetails { get; set; } = new List<QuestionDetail>();
+    public virtual ICollection<QuestionDetail> QuestionDetails { get; set; } = [];
 }

@@ -1,12 +1,12 @@
-﻿namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.PublicModel.Business;
 
-public partial class QuizSubInstructionDetail
+public partial class QuizInstructionDetail
 {
     public long Id { get; set; }
 
     public string Description { get; set; } = null!;
 
-    public long QuizInstructionId { get; set; }
+    public long QuizId { get; set; }
 
     public bool IsActive { get; set; }
 

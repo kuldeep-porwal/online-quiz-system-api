@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace OnlineQuizApi.DataBaseModel;
 
@@ -65,6 +63,7 @@ public partial class OnlineQuizContext : DbContext
         {
             entity.ToTable("QuestionCategory");
 
+            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
@@ -157,18 +156,20 @@ public partial class OnlineQuizContext : DbContext
         {
             entity.ToTable("QuizInstructionDetail");
 
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.Description).IsUnicode(false);
+            entity.Property(e => e.HeadingTitle)
+                .HasMaxLength(100)
+                .IsUnicode(false);
             entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.Property(e => e.UpdatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
 
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.QuizInstructionDetail)
-                .HasForeignKey<QuizInstructionDetail>(d => d.Id)
+            entity.HasOne(d => d.Quiz).WithMany(p => p.QuizInstructionDetails)
+                .HasForeignKey(d => d.QuizId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_QuizInstructionDetail_QuizDetail");
         });
@@ -177,7 +178,6 @@ public partial class OnlineQuizContext : DbContext
         {
             entity.ToTable("QuizQuestionDetail");
 
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
@@ -186,13 +186,13 @@ public partial class OnlineQuizContext : DbContext
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
 
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.QuizQuestionDetail)
-                .HasForeignKey<QuizQuestionDetail>(d => d.Id)
+            entity.HasOne(d => d.Question).WithMany(p => p.QuizQuestionDetails)
+                .HasForeignKey(d => d.QuestionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_QuizQuestionDetail_QuestionDetail");
 
-            entity.HasOne(d => d.Id1).WithOne(p => p.QuizQuestionDetail)
-                .HasForeignKey<QuizQuestionDetail>(d => d.Id)
+            entity.HasOne(d => d.Quiz).WithMany(p => p.QuizQuestionDetails)
+                .HasForeignKey(d => d.QuizId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_QuizQuestionDetail_QuizDetail");
         });
@@ -201,7 +201,6 @@ public partial class OnlineQuizContext : DbContext
         {
             entity.ToTable("QuizSubInstructionDetail");
 
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.CreatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
@@ -210,11 +209,6 @@ public partial class OnlineQuizContext : DbContext
             entity.Property(e => e.UpdatedDate)
                 .HasDefaultValueSql("(getutcdate())")
                 .HasColumnType("datetime");
-
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.QuizSubInstructionDetail)
-                .HasForeignKey<QuizSubInstructionDetail>(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_QuizSubInstructionDetail_QuizInstructionDetail");
         });
 
         OnModelCreatingPartial(modelBuilder);

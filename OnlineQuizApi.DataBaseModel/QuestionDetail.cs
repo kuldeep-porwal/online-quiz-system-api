@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.DataBaseModel;
 
 public partial class QuestionDetail
 {
@@ -19,11 +16,11 @@ public partial class QuestionDetail
 
     public long QuestionCategoryId { get; set; }
 
-    public virtual ICollection<QuestionAnswerDetail> QuestionAnswerDetails { get; set; } = new List<QuestionAnswerDetail>();
+    public virtual ICollection<QuestionAnswerDetail> QuestionAnswerDetails { get; set; } = [];
 
     public virtual QuestionCategory QuestionCategory { get; set; } = null!;
 
-    public virtual ICollection<QuestionOptionDetail> QuestionOptionDetails { get; set; } = new List<QuestionOptionDetail>();
+    public virtual ICollection<QuestionOptionDetail> QuestionOptionDetails { get; set; } = [];
 
-    public virtual QuizQuestionDetail? QuizQuestionDetail { get; set; }
+    public virtual ICollection<QuizQuestionDetail> QuizQuestionDetails { get; set; } = [];
 }

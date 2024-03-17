@@ -1,4 +1,4 @@
-﻿namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.PublicModel.Business;
 
 public partial class QuestionAnswerDetail
 {
@@ -13,8 +13,4 @@ public partial class QuestionAnswerDetail
     public DateTime CreatedDate { get; set; }
 
     public DateTime UpdatedDate { get; set; }
-
-    public virtual QuestionOptionDetail Option { get; set; } = null!;
-
-    public virtual QuestionDetail Question { get; set; } = null!;
 }

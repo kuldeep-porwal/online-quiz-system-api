@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.DataBaseModel;
 
 public partial class QuizInstructionDetail
 {
     public long Id { get; set; }
 
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
     public long QuizId { get; set; }
 
@@ -17,7 +14,9 @@ public partial class QuizInstructionDetail
 
     public DateTime UpdatedDate { get; set; }
 
-    public virtual QuizDetail IdNavigation { get; set; } = null!;
+    public bool HasSubInstruction { get; set; }
 
-    public virtual QuizSubInstructionDetail? QuizSubInstructionDetail { get; set; }
+    public string? HeadingTitle { get; set; }
+
+    public virtual QuizDetail Quiz { get; set; } = null!;
 }

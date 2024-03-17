@@ -1,4 +1,4 @@
-﻿namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.PublicModel.Business;
 
 public partial class QuizSubInstructionDetail
 {

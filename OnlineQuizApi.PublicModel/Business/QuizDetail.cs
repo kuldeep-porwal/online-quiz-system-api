@@ -1,4 +1,4 @@
-﻿namespace OnlineQuizApi.DataBaseModel;
+﻿namespace OnlineQuizApi.PublicModel.Business;
 
 public partial class QuizDetail
 {
@@ -19,10 +19,4 @@ public partial class QuizDetail
     public DateTime CreatedDate { get; set; }
 
     public DateTime UpdatedDate { get; set; }
-
-    public virtual QuizCategory Category { get; set; } = null!;
-
-    public virtual ICollection<QuizInstructionDetail> QuizInstructionDetails { get; set; } = [];
-
-    public virtual ICollection<QuizQuestionDetail> QuizQuestionDetails { get; set; } = [];
 }
