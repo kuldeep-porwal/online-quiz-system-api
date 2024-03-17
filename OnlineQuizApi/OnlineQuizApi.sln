@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34526.213
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineQuizApi", "OnlineQuizApi.csproj", "{E0422891-9F84-4E24-8B62-4982B739C343}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineQuizApi", "OnlineQuizApi.csproj", "{E0422891-9F84-4E24-8B62-4982B739C343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineQuizApi.DataBaseModel", "..\OnlineQuizApi.DataBaseModel\OnlineQuizApi.DataBaseModel.csproj", "{1AD30F1F-5622-405C-9ABC-33CFCF0A6BB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E0422891-9F84-4E24-8B62-4982B739C343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0422891-9F84-4E24-8B62-4982B739C343}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0422891-9F84-4E24-8B62-4982B739C343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AD30F1F-5622-405C-9ABC-33CFCF0A6BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AD30F1F-5622-405C-9ABC-33CFCF0A6BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AD30F1F-5622-405C-9ABC-33CFCF0A6BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AD30F1F-5622-405C-9ABC-33CFCF0A6BB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
